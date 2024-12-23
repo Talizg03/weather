@@ -1,3 +1,8 @@
 import streamlit as st
-st.text(""" #Title ### subtitle
+st.markdown(""" 
+# Title 
+## subtitle
+-bul1
+- bul2
+
 """)
