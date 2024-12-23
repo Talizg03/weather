@@ -6,3 +6,4 @@ st.markdown("""
 - bul2
 
 """)
+st.radio("which desert is best?",["cake","ice cream","fruits"])
