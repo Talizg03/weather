@@ -9,7 +9,7 @@ def get_weather(city_name, api_key):
 
 
     # Construct the URL for the API request
-    complete_url = "http://api.weatherstack.com/current ? access_key=" + api_key +" & query=" + city_name
+    complete_url = "http://api.weatherstack.com/current access_key=" + api_key +" &query=" + city_name
     # Send a GET request to the API
     response = requests.get(complete_url)
 
