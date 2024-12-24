@@ -30,7 +30,8 @@ def weather_app():
 
 
     # Input field for the city name
-    city_name = st.text_input('Enter city name:', 'London')
+    city_name = st.text_input('Enter city name: ')
+
 
     if city_name:
         # Get the weather data for the city
@@ -40,7 +41,7 @@ def weather_app():
         if weather_data:
             # Display the weather data
             st.write(f"Weather for: {city_name}")
-            st.write(f"country:{location}")
+            st.write(f"country:{location['country']}")
             st.write(f"Time of observation {datetime.now()}")
             st.write(f"Temperature: {current['temperature']}°C")
 
