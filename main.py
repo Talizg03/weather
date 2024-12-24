@@ -1,3 +1,5 @@
+from os import write
+
 import requests
 import streamlit as st
 
@@ -17,16 +19,16 @@ def get_weather(city_name, api_key):
         data = response.json()
 
         # Extract required data
-        main_data = data['main']
-        weather_data = data['weather'][0]
+        # main_data = data['main']
+        # weather_data = data['weather'][0]
+        #
+        # # Extract temperature, pressure, humidity, and weather description
+        # temperature = main_data['temp']
+        # pressure = main_data['pressure']
+        # humidity = main_data['humidity']
+        # description = weather_data['description']
 
-        # Extract temperature, pressure, humidity, and weather description
-        temperature = main_data['temp']
-        pressure = main_data['pressure']
-        humidity = main_data['humidity']
-        description = weather_data['description']
-
-        return temperature, pressure, humidity, description
+        return data
     else:
         # If city is not found or request fails
         return None
@@ -47,14 +49,14 @@ def weather_app():
         weather_data = get_weather(city_name, api_key)
 
         if weather_data:
-            temperature, pressure, humidity, description = weather_data
-
+            # temperature, pressure, humidity, description = weather_data
+            st.write(weather_data)
             # Display the weather data
-            st.write(f"Weather for {city_name}:")
-            st.write(f"Temperature: {temperature}°C")
-            st.write(f"Pressure: {pressure} hPa")
-            st.write(f"Humidity: {humidity}%")
-            st.write(f"Description: {description}")
+            # st.write(f"Weather for {city_name}:")
+            # st.write(f"Temperature: {temperature}°C")
+            # st.write(f"Pressure: {pressure} hPa")
+            # st.write(f"Humidity: {humidity}%")
+            # st.write(f"Description: {description}")
         else:
             st.write("City not found or there was an error with the API request.")
 
