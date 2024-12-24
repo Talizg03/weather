@@ -28,7 +28,7 @@ def get_weather(city_name):
         # humidity = main_data['humidity']
         # description = weather_data['description']
 
-        return data
+        return data["current"]
     else:
         # If city is not found or request fails
         return None
