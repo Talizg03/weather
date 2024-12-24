@@ -1,6 +1,4 @@
 from datetime import datetime
-from os import write
-
 import requests
 import streamlit as st
 
@@ -19,17 +17,7 @@ def get_weather(city_name):
         # Parse the response into JSON format
         data = response.json()
 
-        # Extract required data
-        # main_data = data['main']
-        # weather_data = data['weather'][0]
-        #
-        # # Extract temperature, pressure, humidity, and weather description
-        # temperature = main_data['temp']
-        # pressure = main_data['pressure']
-        # humidity = main_data['humidity']
-        # description = weather_data['description']
-
-        return data["current"]
+        return data
     else:
         # If city is not found or request fails
         return None
@@ -39,8 +27,7 @@ def get_weather(city_name):
 def weather_app():
     st.title('Weather Prediction App')
 
-    # Get the API key (replace with your own)
-      # Replace this with your OpenWeatherMap API key
+
 
     # Input field for the city name
     city_name = st.text_input('Enter city name:', 'London')
@@ -48,12 +35,15 @@ def weather_app():
     if city_name:
         # Get the weather data for the city
         weather_data = get_weather(city_name)
-
+        current = weather_data['current']
+        location = weather_data['location']
         if weather_data:
             # Display the weather data
-            st.write(f"Weather for {city_name}:")
-            st.write(f"Time of observation {datetime.now()}:")
-            st.write(f"Temperature: {weather_data['temperature']}°C")
+            st.write(f"Weather for: {city_name}")
+            st.write(f"country:{location}")
+            st.write(f"Time of observation {datetime.now()}")
+            st.write(f"Temperature: {current['temperature']}°C")
+
         else:
             st.write("City not found or there was an error with the API request.")
 
