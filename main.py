@@ -8,7 +8,7 @@ import streamlit as st
 def get_weather(city_name):
     api_key = 'e6affaa056e1b1f765c4716b941ae4e7'
     url = f"https://api.weatherstack.com/current?access_key={api_key}"
-    querystring = {"query": "London"}
+    querystring = {"query": city_name}
 
     # Send a GET request to the API
     response = requests.get(url,params=querystring)
