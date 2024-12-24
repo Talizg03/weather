@@ -1,15 +1,13 @@
 import requests
-import toml
 import streamlit as st
 
-with open('secret.toml','r') as f:
-    config = toml.load(f)
+
 # Function to fetch weather data
 def get_weather(city_name, api_key):
 
 
     # Construct the URL for the API request
-    complete_url = "http://api.weatherstack.com/current ? access_key=" + config['API'] +" & query=" + city_name
+    complete_url = "http://api.weatherstack.com/current ? access_key=" + api_key +" & query=" + city_name
     # Send a GET request to the API
     response = requests.get(complete_url)
 
@@ -39,7 +37,7 @@ def weather_app():
     st.title('Weather Prediction App')
 
     # Get the API key (replace with your own)
-    api_key = 'YOUR_API_KEY_HERE'  # Replace this with your OpenWeatherMap API key
+    api_key = 'e6affaa056e1b1f765c4716b941ae4e7'  # Replace this with your OpenWeatherMap API key
 
     # Input field for the city name
     city_name = st.text_input('Enter city name:', 'London')
