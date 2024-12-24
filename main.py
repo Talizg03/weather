@@ -5,13 +5,13 @@ import streamlit as st
 
 
 # Function to fetch weather data
-def get_weather(city_name, api_key):
+def get_weather(city_name):
+    api_key = 'e6affaa056e1b1f765c4716b941ae4e7'
+    url = f"https://api.weatherstack.com/current?access_key={api_key}"
+    querystring = {"query": "London"}
 
-    c = 'http://api.weatherstack.com/current ? access_key = ' + api_key + '& query = London, United Kingdom'
-    # Construct the URL for the API request
-    complete_url = "http://api.weatherstack.com/current access_key=" + api_key +" &query=" + city_name
     # Send a GET request to the API
-    response = requests.get(c)
+    response = requests.get(url,params=querystring)
 
     # Check if the request was successful
     if response.status_code == 200:
@@ -39,14 +39,14 @@ def weather_app():
     st.title('Weather Prediction App')
 
     # Get the API key (replace with your own)
-    api_key = 'e6affaa056e1b1f765c4716b941ae4e7'  # Replace this with your OpenWeatherMap API key
+      # Replace this with your OpenWeatherMap API key
 
     # Input field for the city name
     city_name = st.text_input('Enter city name:', 'London')
 
     if city_name:
         # Get the weather data for the city
-        weather_data = get_weather(city_name, api_key)
+        weather_data = get_weather(city_name)
 
         if weather_data:
             # temperature, pressure, humidity, description = weather_data
