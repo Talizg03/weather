@@ -7,11 +7,11 @@ import streamlit as st
 # Function to fetch weather data
 def get_weather(city_name, api_key):
 
-
+    c = 'http://api.weatherstack.com/current ? access_key = ' + api_key + '& query = London, United Kingdom'
     # Construct the URL for the API request
     complete_url = "http://api.weatherstack.com/current access_key=" + api_key +" &query=" + city_name
     # Send a GET request to the API
-    response = requests.get(complete_url)
+    response = requests.get(c)
 
     # Check if the request was successful
     if response.status_code == 200:
