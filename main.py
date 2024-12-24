@@ -5,7 +5,7 @@ import streamlit as st
 
 # Function to fetch weather data
 def get_weather(city_name):
-    api_key = 'e6affaa056e1b1f765c4716b941ae4e7'
+    
     url = f"https://api.weatherstack.com/current?access_key={api_key}"
     querystring = {"query": city_name}
 
@@ -36,9 +36,9 @@ def weather_app():
     if city_name:
         # Get the weather data for the city
         weather_data = get_weather(city_name)
-        current = weather_data['current']
-        location = weather_data['location']
         if weather_data:
+            current = weather_data['current']
+            location = weather_data['location']
             # Display the weather data
             st.write(f"Weather for: {city_name}")
             st.write(f"country:{location['country']}")
