@@ -5,7 +5,7 @@ import streamlit as st
 
 # Function to fetch weather data
 def get_weather(city_name):
-    
+    api_key = 'e6affaa056e1b1f765c4716b941ae4e7'
     url = f"https://api.weatherstack.com/current?access_key={api_key}"
     querystring = {"query": city_name}
 
