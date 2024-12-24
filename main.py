@@ -1,3 +1,4 @@
+from datetime import datetime
 from os import write
 
 import requests
@@ -49,14 +50,10 @@ def weather_app():
         weather_data = get_weather(city_name)
 
         if weather_data:
-            # temperature, pressure, humidity, description = weather_data
-            st.write(weather_data)
             # Display the weather data
-            # st.write(f"Weather for {city_name}:")
-            # st.write(f"Temperature: {temperature}°C")
-            # st.write(f"Pressure: {pressure} hPa")
-            # st.write(f"Humidity: {humidity}%")
-            # st.write(f"Description: {description}")
+            st.write(f"Weather for {city_name}:")
+            st.write(f"Time of observation {datetime.now()}:")
+            st.write(f"Temperature: {weather_data['temperature']}°C")
         else:
             st.write("City not found or there was an error with the API request.")
 
