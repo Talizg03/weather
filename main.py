@@ -41,7 +41,7 @@ def weather_app():
             location = weather_data['location']
             # Display the weather data
             st.write(f"Weather for: {city_name}")
-            st.write(f"country:{location['country']}")
+            st.write(f"Country:{location['country']}")
             st.write(f"Time of observation {datetime.now()}")
             st.write(f"Temperature: {current['temperature']}°C")
 
