@@ -44,6 +44,7 @@ def weather_app():
             st.write(f"Country:{location['country']}")
             st.write(f"Time of observation {datetime.now()}")
             st.write(f"Temperature: {current['temperature']}°C")
+            st.write(f"The weather description is:{current['weather_descriptions']}")
 
         else:
             st.write("City not found or there was an error with the API request.")
