@@ -16,7 +16,7 @@ This project describes a weather application that utilizes an API key to fetch r
 - **Weather API (API Key)**
 
 -   ## If you want to try it out, please press the link below:
--
+
 -    WEATHER APP DEMO
 
 https://weather-fzzbhnnlbyn7al4nahmcjd.streamlit.app/
