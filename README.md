@@ -1,20 +1,19 @@
 https://api.weatherstack.com/
 
-# real-Time, History, Forecast
-Our API covers global weather data across the board — from a 
-multi-year history all the way to live information and accurate weather forecasts.
+# Weather App
 
- 
-#Millions of Locations
-Make use of live or hour-by-hour weather data for millions of 
-cities and towns worldwide, supporting a variety methods to look up any location.
+This project describes a weather application that utilizes an API key to fetch real-time weather data. I used **GitHub** for version control and **Streamlit** to present and display the weather information interactively.
 
- 
-#Rock-Solid Uptime & Speed
-Powered by best-in-class cloud infrastructure, our API delivers data 
-in milliseconds around the clock with an uptime of nearly 100%.
+## Key Features
+- Retrieves live weather data using a weather API.
+- Displays key weather details such as temperature, humidity, and weather conditions.
+- Interactive user interface built with **Streamlit**.
 
- 
-#Start Free, Upgrade Later
-Start testing the API immediately by signing up for our Free Plan. 
-You can always upgrade later — no strings attached.
+## Tools and Technologies
+- **Python**
+- **Streamlit**
+- **Weather API (API Key)**
+
+https://weather-fzzbhnnlbyn7al4nahmcjd.streamlit.app/
+
+
