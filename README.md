@@ -1,6 +1,6 @@
 https://api.weatherstack.com/
 
-#real-Time, History, Forecast
+# real-Time, History, Forecast
 Our API covers global weather data across the board — from a 
 multi-year history all the way to live information and accurate weather forecasts.
 
