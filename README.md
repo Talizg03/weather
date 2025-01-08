@@ -12,6 +12,7 @@ This project describes a weather application that utilizes an API key to fetch r
 ## Tools and Technologies
 - **Python**
 - **Streamlit**
+- **Seaborn**
 - **Weather API (API Key)**
 
 https://weather-fzzbhnnlbyn7al4nahmcjd.streamlit.app/
