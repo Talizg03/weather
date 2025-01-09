@@ -40,7 +40,7 @@ def weather_app():
         if weather_data:
             current = weather_data['current']
             location = weather_data['location']
-            
+
             # Display the weather data
             st.write(f"Weather for: {city_name}")
             st.write(f"Country:{location['country']}")
