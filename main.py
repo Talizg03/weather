@@ -40,14 +40,14 @@ def weather_app():
         if weather_data:
             current = weather_data['current']
             location = weather_data['location']
-            forecast = weather_data.get('forecast', {})
+            
             # Display the weather data
             st.write(f"Weather for: {city_name}")
             st.write(f"Country:{location['country']}")
             st.write(f"Time of observation {datetime.now(pytz.timezone(location['timezone_id']))}")
             st.write(f"Temperature: {current['temperature']}°C")
             st.write(f"The weather description is:{", ".join(current['weather_descriptions'])}")
-           
+
         else:
             st.write("City not found or there was an error with the API request.")
 
