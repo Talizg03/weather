@@ -8,7 +8,7 @@ import streamlit as st
 def get_weather(city_name):
     api_key = 'e6affaa056e1b1f765c4716b941ae4e7'
     url = f"https://api.weatherstack.com/current?access_key={api_key}"
-    querystring = {"query": city_name}
+    querystring = {"query": city_name,"forecast_days":7}
 
     # Send a GET request to the API
     response = requests.get(url,params=querystring)
@@ -40,14 +40,17 @@ def weather_app():
         if weather_data:
             current = weather_data['current']
             location = weather_data['location']
-
-            # Display the weather data
+            forecast = weather_data.get('forecast', {})
+             # Display the weather data
             st.write(f"Weather for: {city_name}")
             st.write(f"Country:{location['country']}")
             st.write(f"Time of observation {datetime.now(pytz.timezone(location['timezone_id']))}")
             st.write(f"Temperature: {current['temperature']}°C")
             st.write(f"The weather description is:{", ".join(current['weather_descriptions'])}")
-
+            if forecast:
+                st.write(f"7-day Forecast:")
+                for day, data in forecast.items():
+                    st.write(f"{day}: {data['temperature']}°C, {', '.join(data['weather_descriptions'])}")
         else:
             st.write("City not found or there was an error with the API request.")
 
