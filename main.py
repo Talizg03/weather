@@ -8,24 +8,23 @@ import streamlit as st
 # Function to fetch weather data
 def get_weather(city_name):
     api_key = 'e6affaa056e1b1f765c4716b941ae4e7'
-    current_url = f"https://api.weatherstack.com/current?access_key={api_key}"
-    forecast_url = f"https://api.weatherstack.com/forecast?access_key={api_key}"
-    querystring = {"query": city_name,"forecast_days":7}
+    url = f"https://api.weatherstack.com/current?access_key={api_key}"
+
+    querystring = {"query": city_name}
 
     # Send a GET request to the API
-    current_response = requests.get(current_url,params=querystring)
-    forecast_response = requests.get(forecast_url, params=querystring)
+    response = requests.get(url,params=querystring)
 
     # Check if the request was successful
-    if current_response.status_code == 200 and forecast_response.status_code == 200:
+    if response.status_code == 200 :
         # Parse the responses into JSON format
-        current_data = current_response.json()
-        forecast_data = forecast_response.json()
+        data = response.json()
 
-        return current_data, forecast_data
+
+        return data
     else:
         # If any of the requests fail
-        return None, None
+        return None
 
 
 # Streamlit UI for input and display
@@ -40,11 +39,11 @@ def weather_app():
 
     if city_name:
         # Get the weather data for the city
-        current_data, forecast_data = get_weather(city_name)
-        if current_data and forecast_data:
-           current = current_data['current']
-           location = current_data['location']
-           forecast = forecast_data.get('forecast', {})
+        weather_data = get_weather(city_name)
+        if weather_data:
+           current = weather_data['current']
+           location = weather_data['location']
+
              # Display the weather data
            st.write(f"Weather for: {city_name}")
            st.write(f"Country:{location['country']}")
@@ -52,11 +51,7 @@ def weather_app():
            st.write(f"Temperature: {current['temperature']}°C")
            st.write(f"The weather description is:{", ".join(current['weather_descriptions'])}")
            # Display the weather data
-           forecast = forecast_data.get('forecast', {})
-           if forecast:
-                st.write(f"7-day Forecast:")
-                for day, data in forecast.items():
-                    st.write(f"{day}: {data['temperature']}°C, {', '.join(data['weather_descriptions'])}")
+
         else:
             st.write("City not found or there was an error with the API request.")
 
