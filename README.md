@@ -1,6 +1,7 @@
   https://weatherstack.com/
   
-  WEATHER APP DEMO : https://weather-fzzbhnnlbyn7al4nahmcjd.streamlit.app/
+  WEATHER APP DEMO : http://192.168.1.200:8502
+
 
 
 # Weather App
