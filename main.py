@@ -37,19 +37,20 @@ def weather_app():
     city_name = st.text_input('Enter city name: ')
 
 
+
     if city_name:
         # Get the weather data for the city
         weather_data = get_weather(city_name)
         if weather_data:
-           current = weather_data['current']
-           location = weather_data['location']
+            current = weather_data['current']
+            location = weather_data['location']
 
              # Display the weather data
-           st.write(f"Weather for: {city_name}")
-           st.write(f"Country:{location['country']}")
-           st.write(f"Time of observation {datetime.now(pytz.timezone(location['timezone_id']))}")
-           st.write(f"Temperature: {current['temperature']}°C")
-           st.write(f"The weather description is:{", ".join(current['weather_descriptions'])}")
+            st.write(f"Weather for: {city_name}")
+            st.write(f"Country:{location['country']}")
+            st.write(f"Time of observation {datetime.now(pytz.timezone(location['timezone_id']))}")
+            st.write(f"Temperature: {current['temperature']}°C")
+            st.write(f"The weather description is:{", ".join(current['weather_descriptions'])}")
            # Display the weather data
 
         else:
